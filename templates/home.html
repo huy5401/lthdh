@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}homepage{% endblock %}
+{% block content %}
+<form class="form_text" method="POST">
+    <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+    </div>
+    <div>
+        <textarea class="input_text" id="text_area" name="text_area" rows="3" cols="70" autocomplete="off"></textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn">Predict</button>
+    </div>
+    <p>{{ text }}</p>
+</form>
+{% endblock %}

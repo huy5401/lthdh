@@ -1,0 +1,37 @@
+body{
+    background-color: rebeccapurple;
+    text-align: center;
+}
+.container{
+    height: 300px;
+    margin: 0 auto;
+}
+h1{
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+form{
+    margin-top: 10%;
+}
+.input_text{
+    border: none;
+    border-radius: 3px;
+}
+.btn{
+    padding: 18px 50px;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(5, 170, 93);
+    border: none;
+    border-radius: 5px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+p{
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
