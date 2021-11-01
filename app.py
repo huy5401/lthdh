@@ -1,6 +1,7 @@
 from flask import Flask, render_template,request, redirect, url_for
 from flask.helpers import flash
 # from model.main import predict
+#hjashfkasdhfaks
 import pickle
 
 app = Flask(__name__)
