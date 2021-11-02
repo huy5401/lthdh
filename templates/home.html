@@ -14,9 +14,28 @@
     <div>
         <textarea class="input_text" id="text_area" name="text_area" rows="3" cols="70" autocomplete="off"></textarea>
     </div>
-    <div>
-        <button type="submit" class="btn">Predict</button>
+    <div class="upload_file">
+        <div class="wrapp">
+            <input type="file" name="file" id="file">
+            <div id="fileName">Select a file</div>
+            <label for="file" class="upload_file-icon">
+                <i class="fas fa-paperclip"></i>
+            </label>
+        </div>
     </div>
-    <p>{{ text }}</p>
+    <button type="submit" class="btn">Predict</button>
+    <p>{{ result }}</p>
 </form>
+{% endblock %}
+{% block script %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function () 
+        {
+            $("#file").change(function (event) {
+                var x = event.target.files[0].name
+                $("#fileName").text(x)
+            });
+        })
+</script>
 {% endblock %}

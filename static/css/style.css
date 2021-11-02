@@ -14,6 +14,7 @@ a{
 }
 form{
     margin-top: 10%;
+    box-sizing: border-box;
 }
 .input_text{
     border: none;
@@ -34,4 +35,37 @@ p{
     color: white;
     font-size: 1.2rem;
     margin-top: 30px;
+}
+
+#file{
+    display: none;
+}
+.upload_file{
+    margin-top: 10px;  
+}
+.wrapp{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 490px;
+    margin-bottom: 10px;
+}
+.upload_file-icon{
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    color: white;
+}
+.upload_file-icon:hover{
+    cursor: pointer;
+}
+#fileName{
+    border: solid 1px #333;
+    width: 400px;
+    height: 24px;
+    font-size: 1.4rem;
+    line-height: 24px;
+    margin-right: 9px;
+    text-align: center;
+    border: none;
+    color: white;
 }
