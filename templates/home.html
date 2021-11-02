@@ -11,18 +11,14 @@
             {% endif %}
             {% endwith %}
     </div>
-    <div>
+    <div class="txt_area">
         <textarea class="input_text" id="text_area" name="text_area" rows="3" cols="70" autocomplete="off"></textarea>
+        <label for="file" class="upload_file-icon">
+            <i class="fas fa-paperclip"></i>
+        </label>
     </div>
-    <div class="upload_file">
-        <div class="wrapp">
-            <input type="file" name="file" id="file">
-            <div id="fileName">Select a file</div>
-            <label for="file" class="upload_file-icon">
-                <i class="fas fa-paperclip"></i>
-            </label>
-        </div>
-    </div>
+    <input type="file" name="file" id="file">
+    <div id="fileName"></div>
     <button type="submit" class="btn">Predict</button>
     <p>{{ result }}</p>
 </form>
