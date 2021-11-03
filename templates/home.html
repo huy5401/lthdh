@@ -20,7 +20,11 @@
     <input type="file" name="file" id="file">
     <div id="fileName"></div>
     <button type="submit" class="btn">Predict</button>
-    <p>{{ result }}</p>
+    <div class="result_container">
+        <p class="result_label" >Result: </p>
+        <p class="result_text">{{ result }}</p>
+    </div>
+    
 </form>
 {% endblock %}
 {% block script %}

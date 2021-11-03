@@ -1,10 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: rebeccapurple;
     text-align: center;
-    
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(20, 9, 9, 0.05)), url('/static/img/Nhan.jpg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
 }
 .container{
-    height: 300px;
+    box-sizing: border-box;
     margin: 0 auto;
    
 }
@@ -66,4 +78,20 @@ p{
     color: white;
     margin: 0 auto;
     margin-bottom: 10px;
+}
+.result_container{
+    display: flex;
+    width: 200px;
+    margin: 40px auto;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.result_text{
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 200px;
+}
+.result_label{
+    margin: 0;
+    text-align: center;
 }

@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='fonts/fontawesome-free-5.15.4/css/all.min.css') }}">
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="/"><h1>Text Classification</h1></a>
-        </div>
-        <div class="content">
-            
-            {% block content %}
-            {% endblock %}
+    <div class="hero">
+        <div class="container">
+            <div class="header">
+                <a href="/"><h1>Vietnamese Text Classification</h1></a>
+                <p>Định dạng file upload: *.txt</div></p>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
     </div>
     {% block script%}
