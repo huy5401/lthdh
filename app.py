@@ -7,7 +7,7 @@ from pre import preprocessing
 
 
 app = Flask(__name__)
-app.config['UPLOAD_EXTENSIONS'] = ['.txt', '.doc', '.docx']
+app.config['UPLOAD_EXTENSIONS'] = ['.txt']
 app.secret_key = "btlthdh"
 
 
@@ -46,11 +46,10 @@ def submit():
                         os.abort(400)
                 f.save(os.path.join(fileName))
                 print(f)
-                with open(fileName, "r", encoding='utf16') as f:
+                with open(fileName, "r", encoding='utf8') as f:
                     lines = f.readlines()
                     lines = ' '.join(lines)
                 lines = preprocessing(lines)
-                print(lines)
                 data.append(lines)
                 vec_data = vectorizer.transform(data)
                 result = clf.predict(vec_data)

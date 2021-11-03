@@ -1,9 +1,13 @@
 from pyvi import ViTokenizer
-# from underthesea import word_tokenize
-from nltk.corpus import stopwords
+# from nltk.corpus import stopwords
 import re
 
-stopword = set(stopwords.words('vietnamese'))
+stopwords = set()
+with open('vietnamese.txt', 'r', encoding='utf8') as f:
+    line = f.readline()
+    while line:
+        line = f.readline().strip('\n')
+        stopwords.add(line)
 
 
 def clear_text(text):
@@ -24,7 +28,7 @@ def remove_stopwords(text):
     text = tokenize(text)
     text = text.split()
     for word in text:
-        if word not in stopword:
+        if word not in stopwords:
             doc_words.append(word)
     doc_text = ' '.join(doc_words).strip()
     return doc_text
