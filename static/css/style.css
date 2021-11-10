@@ -101,9 +101,9 @@ p{
     /* border: solid 1px rgb(250, 250, 250); */
     width: 400px;
     height: 24px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 24px;
-    color: white;
+    color: black;
     margin-left: 15px;
 }
 .result_container{
