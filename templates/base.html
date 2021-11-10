@@ -11,18 +11,25 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="hero">
         <div class="container">
             <div class="header">
                 <a href="/"><h1>Vietnamese Text Classification</h1></a>
-                <p>Định dạng file upload: *.txt</div></p>
+                <p>Định dạng file upload: *.txt</p>
+            </div>
+            <div class="message">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
             </div>
             <div class="content">
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
-    </div>
     {% block script%}
     {% endblock %}
 </body>

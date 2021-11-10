@@ -39,3 +39,5 @@ def preprocessing(text):
     temp = lowercase(temp)
     temp = remove_stopwords(temp)
     return temp
+
+

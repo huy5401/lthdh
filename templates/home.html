@@ -1,41 +1,52 @@
 {% extends 'base.html' %}
 {% block title %}VNTC{% endblock %}
 {% block content %}
-<form class="form_text" method="POST" enctype="multipart/form-data">
-    <div>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <p>{{message}}</p>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-    </div>
-    <div class="txt_area">
-        <textarea class="input_text" id="text_area" name="text_area" rows="3" cols="70" autocomplete="off"></textarea>
-        <label for="file" class="upload_file-icon">
-            <i class="fas fa-paperclip"></i>
-        </label>
-    </div>
-    <input type="file" name="file" id="file">
-    <div id="fileName"></div>
-    <button type="submit" class="btn">Predict</button>
-    <div class="result_container">
-        <p class="result_label" >Result: </p>
-        <p class="result_text">{{ result }}</p>
-    </div>
-    
-</form>
+<div class="grid_col_7">
+    <form class="form_text" method="POST" enctype="multipart/form-data">
+        <div class="txt_area">
+            <textarea class="input_text" id="text_area" name="text_area" rows="10" cols="100" autocomplete="off"></textarea>
+        </div>
+        <div class="file_area">
+            <label for="file" class="upload_file-icon">
+                <i class="fas fa-paperclip"></i>
+            </label>
+            <input type="file" name="file" id="file">
+            <div id="fileName"></div>
+        </div>
+        <button type="submit" class="btn">PREDICT</button>
+    </form>
+</div>
+<div class="grid_col_3">
+    <table class="table_result">
+        <tr>
+          <th>Result</th>
+          <th>Confidence (%)</th>
+        </tr>
+        <tr>
+          <td>{{ result }}</td>
+          <td class="confidence">{{ confidence }}</td>
+        </tr>
+    </table>
+</div>
 {% endblock %}
 {% block script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    $(function () 
-        {
-            $("#file").change(function (event) {
-                var x = event.target.files[0].name
-                $("#fileName").text(x)
-            });
-        })
+                $(window).on('load', function () {
+                    $("#file").change(function (event) {
+                            var x = event.target.files[0].name;
+                            $("#fileName").text(x)
+                        });
+                    var confidence = $(".confidence").text();
+                    var confidence = parseFloat(confidence);
+                    if(confidence > 0 && confidence < 50){
+                        $(".confidence").css('color','#e90909');
+                    }else if(confidence >= 80){
+                        $(".confidence").css('color','green');
+                    }else{
+                        $(".confidence").css('color','#fbbe28');
+                    }
+                })
+
 </script>
 {% endblock %}

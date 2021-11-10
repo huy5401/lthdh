@@ -22,9 +22,9 @@ def submit():
         if request.method == 'POST':
             text = request.form['text_area']
             data = []
-            with open('classifier_news.pkl', 'rb') as f:
+            with open('topic_classification.pkl', 'rb') as f:
                 clf = pickle.load(f)
-            with open('news_vectorizer.pkl', 'rb') as f:
+            with open('vectorizer.pkl', 'rb') as f:
                 vectorizer = pickle.load(f)
             # if text == '' and request.files['file'].filename == '':
             #     flash('Điển vào hay là chọn file thì mới dự đoán được chứ ơ hay nhề -.-')
@@ -34,7 +34,12 @@ def submit():
                 data.append(text)
                 vec_data = vectorizer.transform(data)
                 result = clf.predict(vec_data)
-                return render_template('home.html', result=result[0])
+                confidences = clf.predict_proba(vec_data)
+                max_confidence = confidences[0][0]
+                for confidence in confidences[0]:
+                    if(confidence > max_confidence):
+                        max_confidence = confidence
+                return render_template('home.html', result=result[0], confidence=round(max_confidence*100, 2))
             if request.files:
                 f = request.files['file']
                 fileName = f.filename
@@ -53,7 +58,12 @@ def submit():
                 data.append(lines)
                 vec_data = vectorizer.transform(data)
                 result = clf.predict(vec_data)
-                return render_template('home.html', result=result[0])
+                confidences = clf.predict_proba(vec_data)
+                max_confidence = confidences[0][0]
+                for confidence in confidences[0]:
+                    if (confidence > max_confidence):
+                        max_confidence = confidence
+                return render_template('home.html', result=result[0], confidence=round(max_confidence*100, 2))
     except Exception as e:
         print("\tError", e)
         flash('Điền vào hay là chọn file thì mới dự đoán được chứ ơ hay nhề -.-')

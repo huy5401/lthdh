@@ -1,54 +1,80 @@
 *{
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
+   
 }
-
 body{
-    text-align: center;
-}
-.hero{
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(20, 9, 9, 0.05)), url('/static/img/Nhan.jpg');
-    background-position: center;
-    background-size: cover;
-    position: absolute;
+    background-color: #f4f4f4;
+    margin: 0 15px;
 }
 .container{
     box-sizing: border-box;
-    margin: 0 auto;
    
+}
+.header{
+    text-align: center;
+    padding:10px 0 100px 0;
+    background-image: linear-gradient(to bottom, #05bdcf ,#1c9bd6);
+}
+.message{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 1.3rem;
+    color: red;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom, #1c9bd6 ,#1c9bd6);
+}
+.content{
+    display: flex;
+}
+.grid_col_7{
+    width: 60%;
+}
+.grid_col_3{
+    width: 40%;
+    max-height: 180px;
+    box-shadow: 0 10px 15px -3px rgba(0 , 0, 0, 0.1), 0 4px 6px -2px rgba(0 , 0, 0, 0.05);
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 h1{
     color: white;
+    margin:0;
 }
 a{
     text-decoration: none;
 }
 form{
-    margin-top: 10%;
     box-sizing: border-box;
 }
 .input_text{
-    border: none;
     border-radius: 3px;
-    margin-right: 10px;
+    border:solid 3px #05bdcf;
+    outline: rgb(17, 122, 241);
+    box-shadow: 0 10px 15px -3px rgba(0 , 0, 0, 0.1), 0 4px 6px -2px rgba(0 , 0, 0, 0.05);
+    flex: 1;
+    margin-right: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    height: 180px;
 }
 .txt_area{
     line-height: 50px;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
     margin-bottom: 10px;
 }
 .btn{
-    padding: 18px 50px;
+    padding: 18px 40px;
     font-weight: 600;
     color: white;
     background-color: rgb(5, 170, 93);
     border: none;
     border-radius: 5px;
+    margin-top: 15px;
+    font-size: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0 , 0, 0, 0.1), 0 4px 6px -2px rgba(0 , 0, 0, 0.05);
+
 }
 .btn:hover{
     cursor: pointer;
@@ -58,13 +84,15 @@ p{
     font-size: 1.2rem;
     margin-top: 30px;
 }
-
+.file_area{
+    display: flex;
+}
 #file{
     display: none;
 } 
 .upload_file-icon{
     font-size: 30px;
-    color: white;
+    color: #919ca9;
 }
 .upload_file-icon:hover{
     cursor: pointer;
@@ -76,13 +104,12 @@ p{
     font-size: 1.4rem;
     line-height: 24px;
     color: white;
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin-left: 15px;
 }
 .result_container{
     display: flex;
-    width: 200px;
-    margin: 40px auto;
+    width: 150px;
+    margin: 10px;
     justify-content: flex-start;
     box-sizing: border-box;
 }
@@ -94,4 +121,48 @@ p{
 .result_label{
     margin: 0;
     text-align: center;
+} 
+.table_result{
+    width: 100%;
 }
+.table_result th{
+    font-size: 1.4rem;
+    color: black;
+    height: 50px;
+    background-color: #f4f4f4;
+}
+td{
+    text-align: center;
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 500;
+    height: 40px;
+}
+@media only screen and (max-width: 600px) {
+    .content{
+        display: block;
+    }
+    .grid_col_3{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .input_text{
+        margin: 0;
+        width: 100%;
+        height: 100px;
+    }
+    .grid_col_7{
+        width: 100%;
+    }
+    .table_result th{
+        font-size: 1.2rem;
+    }
+    .upload_file-icon{
+        font-size: 1.3rem;
+    }
+    .btn{
+        padding: 10px 15px;
+        font-size:0.8rem;
+    }
+}
+  
